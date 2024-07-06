@@ -1,0 +1,83 @@
+#include <iostream>
+#include <limits>
+
+using namespace std;
+
+int main() {
+    int choice;
+    double time;
+
+    do {
+        // Display menu
+        cout <<"\n";
+        cout << "Simple Time Calculator\n";
+        cout << "1. Convert seconds to hours\n";
+        cout << "2. Convert seconds to minutes\n";
+        cout << "3. Convert minutes to hours\n";
+        cout << "4. Convert hours to seconds\n";
+        cout << "5. Exit\n";
+        cout << "Enter your choice: ";
+       
+        while (!(cin >> choice) || choice < 1 || choice > 5) {
+            cout << "Invalid input. Please enter a number between 1 and 5.\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+
+        switch (choice) {
+            case 1:
+                cout << "Enter time in seconds: ";
+                while (!(cin >> time) || time < 0) {
+                    cout << "Invalid input. Time must be non-negative.\n";
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                }
+                cout << "Converted time: " << time / 3600 << " hours\n";
+                break;
+
+            case 2:
+                cout << "Enter time in seconds: ";
+                while (!(cin >> time) || time < 0) {
+                    cout << "Invalid input. Time must be non-negative.\n";
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                }
+                cout << "Converted time: " << time / 60 << " minutes\n";
+                break;
+
+            case 3:
+                cout << "Enter time in minutes: ";
+                while (!(cin >> time) || time < 0) {
+                    cout << "Invalid input. Time must be non-negative.\n";
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                }
+                cout << "Converted time: " << time / 60 << " hours\n";
+                break;
+
+            case 4:
+                cout << "Enter time in hours: ";
+                while (!(cin >> time) || time < 0) {
+                    cout << "Invalid input. Time must be non-negative.\n";
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                }
+                cout << "Converted time: " << time * 3600 << " seconds\n";
+                break;
+
+            case 5:
+                cout << "Exiting program. Goodbye!\n";
+                break;
+
+            default:
+                cout << "Invalid choice. Please enter a number between 1 and 5.\n";
+        }
+
+        // Clear input buffer
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    } while (choice != 5);
+
+    return 0;
+}
